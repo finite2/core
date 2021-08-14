@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { getFlavor } from "../utls/getFlavor";
+import { getFlavor } from "../utils/getFlavor";
 
 const colors = {
   default: {

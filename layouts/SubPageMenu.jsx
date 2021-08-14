@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Portal } from "@components";
+import { Portal } from "./Portal";
 
 const SubPageHolder = styled.div`
   padding: 20px;
