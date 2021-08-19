@@ -29,9 +29,10 @@ export const useElementSize = (init = { width: 600, height: 600 }) => {
 
         setState(new ElementSize(w, h, padding));
       }
-      window.addEventListener("resize", updateSize);
+      const observer = new ResizeObserver(updateSize);
+      observer.observe(element);
       updateSize();
-      return () => window.removeEventListener("resize", updateSize);
+      return () => observer.unobserve(element);
     }
   }, [elementRef.current, setState]);
 

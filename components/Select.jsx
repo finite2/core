@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import { Button } from "./Button";
 
@@ -27,17 +28,12 @@ const SelectBase = styled.select`
   // }
 `;
 
-export const Select = props => {
+export const Select = (props) => {
   const { style, options, flavor, ...rest } = props;
   const ref = useRef(null);
 
   return (
-    <Button
-      title={props.title}
-      flavor={flavor}
-      onClick={() => ref.current.focus()}
-      style={style}
-    >
+    <Button title={props.title} flavor={flavor} onClick={() => ref.current.focus()} style={style}>
       <SelectBase ref={ref} {...rest}>
         {options.map((o, i) => {
           o = typeof o === "string" ? { label: o, value: o } : o;
@@ -50,4 +46,10 @@ export const Select = props => {
       </SelectBase>
     </Button>
   );
+};
+
+Select.propTypes = {
+  options: PropTypes.array,
+  value: PropTypes.any,
+  onChange: PropTypes.func,
 };
